@@ -45,4 +45,6 @@ namespace lambda
   def const : combinator := lam (lam (#0))
   def flip : combinator := lam (lam (lam (app (app (#0) (#2)) (#1))))
 
+  #check @monad
+
 end lambda
