@@ -45,10 +45,7 @@ namespace varonly
 
   def numeral := {n : term // is_numeral n}
 
-  def show_numeral (n : numeral) : string := begin
-    cases n,
-    --...
-  end
+  def numeral_to_nat : numeral → ℕ := sorry
 
   inductive is_identifier : term → Prop
   | n {t} (h : is_numeral t) : is_identifier t
@@ -107,12 +104,14 @@ namespace varonly
 
   def identifier := {i : term // is_identifier i}
 
+  def identifier_to_nats : numeral → ℕ × ℕ := sorry
+
+  def show_nats : ℕ × ℕ → string := sorry
+
   def show_term : term → string
   | Z := "a"
   | (S t) := "S " ++ show_term t
   | (R t) := show_term t ++ "'"
-  -- | (var t) := "# " ++ show_term t
-  -- | (bin t) := "λ " ++ show_term t
   | (app t u) := show_term t ++ " " ++ show_term u
   | (abs t u) := show_term t ++ " → " ++ show_term u
 
